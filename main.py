@@ -4,13 +4,14 @@ import datetime
 from modules import weather
 
 def main():
-    # IST Time Check (GitHub uses UTC)
-    now_utc = datetime.datetime.now(datetime.timezone.utc)
-    ist_hour = (now_utc.hour + 5) + (1 if now_utc.minute >= 30 else 0)
-    ist_hour %= 24
+    # Because of TZ env var, this is now naturally IST
+    now = datetime.datetime.now()
+    hour = now.hour
+    
+    print(f"🕒 Current IST Time: {now.strftime('%I:%M %p')}")
 
-    if 6 <= ist_hour <= 21:
-        # Pull keys from GitHub Secrets (NOT .env)
+    # Operating window: 6 AM to 9 PM
+    if 6 <= hour <= 21:
         client = tweepy.Client(
             consumer_key=os.getenv("API_KEY"),
             consumer_secret=os.getenv("API_SECRET"),
@@ -21,13 +22,14 @@ def main():
         weather_key = os.getenv("OPENWEATHER_KEY")
         tweet_text = weather.get_full_karnataka_weather(weather_key)
         
-        try:
-            client.create_tweet(text=tweet_text)
-            print(f"✅ Posted weather for {ist_hour}:00 IST")
-        except Exception as e:
-            print(f"❌ Error: {e}")
+        if tweet_text:
+            try:
+                client.create_tweet(text=tweet_text)
+                print("✅ Tweet sent successfully.")
+            except Exception as e:
+                print(f"❌ X API Error: {e}")
     else:
-        print(f"💤 Sleeping. Current IST hour: {ist_hour}")
+        print(f"💤 Sleeping. Bot only active 6AM-9PM IST.")
 
 if __name__ == "__main__":
     main()
