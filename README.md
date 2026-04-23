@@ -46,8 +46,8 @@ Logs are recorded for monitoring and debugging
 Everything runs automatically — no manual steps required.
 Deployment & Local Setup
 
-Currently deployed on [Update this: e.g., VPS, Render, Railway, AWS EC2, etc.]
-Scheduling handled via [Update this: e.g., cron, systemd, GitHub Actions, or internal scheduler]
+Currently deployed on [Update: Your Hosting, e.g. VPS / Railway / AWS EC2 / etc.]
+Scheduling handled via [Update: cron / GitHub Actions / systemd / etc.]
 
 To run locally (for development):
 Bashgit clone https://github.com/kaautomationlabs/ka_automation_labs.git
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env with your Twitter and Weather API keys
 python main.py
-Important: Never commit real API keys. .env is ignored by .gitignore.
+Important: Never commit real API keys. .env is already ignored by .gitignore.
 Contributing
 Contributions and suggestions are welcome!
 You can help by:
@@ -70,23 +70,9 @@ Improving documentation
 Feel free to open Issues or Pull Requests.
 License
 This project is licensed under the MIT License.
-See the LICENSE file for details.
+See the LICENSE file for full details.
 Maintainer
 Built and maintained by kaautomationlabs
 Follow project updates on X
 
 ⭐ If this bot helps you stay updated on Karnataka weather, please star the repository!
-text### Additional Quick Actions
-1. **Fix the LICENSE file** — make sure it contains the full MIT license text (I can give it again if needed).
-2. Update the **Repository Description** (in the "About" box on the main page) to something shorter and cleaner, e.g.:  
-   `"Fully automated hourly weather updates for all 31 districts of Karnataka on X. Non-commercial public utility running since March 2026."`
-3. Add a `CLAUDE.md` if you haven't already (I can provide content).
-
-Once you update the README with the version above, your repo will look **neat, professional, and complete**.
-
-Would you like me to:
-- Provide the exact MIT LICENSE text again?
-- Help improve any specific part (e.g., clarify the scheduler)?
-- Or shall we now move to the **7-day Sprint Automation Roadmap** using Claude Code?
-
-Just let me know the next step! 🚀
