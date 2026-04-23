@@ -35,3 +35,43 @@ ka_automation_labs/
 ├── .env.example               # Environment variables template
 ├── LICENSE
 └── CLAUDE.md                  # (optional) Guidelines for Claude Code
+How It Works (Flow)
+
+Scheduler triggers the bot hourly (6 AM – 9 PM IST)
+Weather Fetcher pulls latest data for all 31 districts
+Tweet Formatter creates clean, engaging messages with emojis
+Twitter Poster sends the update using write-only Twitter API
+Logs are recorded for monitoring and debugging
+
+Everything runs automatically — no manual steps required.
+Deployment
+
+Currently deployed on [mention your hosting here, e.g., VPS, Render, Railway, AWS EC2, etc.]
+Scheduling handled via [cron, systemd, GitHub Actions, or your current method]
+Uses environment variables from .env for all secrets
+
+To run locally (for development):
+Bashgit clone https://github.com/kaautomationlabs/ka_automation_labs.git
+cd ka_automation_labs
+pip install -r requirements.txt
+cp .env.example .env
+# Edit .env with your Twitter and Weather API keys
+python main.py
+Important: Never commit real API keys. .env is already ignored by .gitignore.
+Contributing
+Contributions and suggestions are welcome!
+You can help by:
+
+Improving tweet formatting for better engagement
+Adding severe weather alerts
+Enhancing error handling
+Suggesting new features for Karnataka residents
+Improving documentation
+
+Feel free to open Issues or Pull Requests.
+License
+This project is licensed under the MIT License.
+See the LICENSE file for full details.
+Maintainer
+Built and maintained by kaautomationlabs
+Follow project updates on X
